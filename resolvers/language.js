@@ -1,6 +1,20 @@
-// TO implement language resolver
-// 1step call the github api to get the data 
-// once fetche the data get an array of all languages
-// create a util unction that get the fav languages
-// use the util function with the languages array 
-// send a json object with the 200 and the result
+const { githubApiCall } = require("./utils");
+
+const getLanguagesResolver = {
+  Query: {
+    getLanguages: async (userName) => {
+      console.log("CCC", userName);
+
+      const requestedPackage = await githubApiCall(userName);
+      console.log("SSS", requestedPackage);
+      const languagesArray = requestedPackage.map((repo) => {
+        return repo.language;
+      });
+      // create a util function that get the fav languages
+      // use the util function with the languages array
+      // return / send a json object with the 200 and the result
+    },
+  },
+};
+
+module.exports = getLanguagesResolver;
