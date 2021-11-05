@@ -1,18 +1,17 @@
-const { githubApiCall } = require("./utils");
+const { githubApiCall, extractFavLanguage } = require("./utils");
 
 const getLanguagesResolver = {
   Query: {
-    getLanguages: async (userName) => {
-      console.log("CCC", userName);
+    getLanguage: async (obj, {userName}) => {
 
       const requestedPackage = await githubApiCall(userName);
-      console.log("SSS", requestedPackage);
       const languagesArray = requestedPackage.map((repo) => {
         return repo.language;
       });
-      // create a util function that get the fav languages
-      // use the util function with the languages array
-      // return / send a json object with the 200 and the result
+     
+      const result = extractFavLanguage(languagesArray)
+      return  result
+      
     },
   },
 };
