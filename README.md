@@ -1,18 +1,15 @@
 # GithubFinder Browser
 
-A simple GraphQL API that returns Github user's favourite language, The Api returns the following object:
+A simple GraphQL API that returns Github user's favourite language. 
 
-```
-{
-  "data": {
-    "getLanguage": {
-      "name": "<Favourite Language>",
-      "numbOfRepo": <Number of rpository contining that language>
-    }
-  }
-}
+## Technologies used
 
-```
+- Axios to make HTTP requests to github api
+- Apollo-server-express
+- Node js
+- Express
+- Graphql
+
 ## Getting started
 
 To run it locally 
@@ -27,7 +24,6 @@ The server runs on port 3001
 
 ```
 
-
 ```
 To interact with the API you can use Apollo Studio
 
@@ -41,16 +37,22 @@ query Query($userName: String!) {
 }
 ```
 ```
-In the variables section ad a string value to the usernme
+In the variables section add a string value to the usernme
 {
   "userName": "<YOUR GITHUB USER NAME HERE>"
 }
 ```
 
-### Technologies used
+```
+The Api returns the following object:
 
-- Axios to make HTTP requests to github api
-- Apollo-server-express
-- Node js
-- Express
-- Graphql
+{
+  "data": {
+    "getLanguage": {
+      "name": "<Favourite Language>",
+      "numbOfRepo": <Number of rpository containing that language>
+    }
+  }
+}
+
+```
