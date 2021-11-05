@@ -3,10 +3,10 @@ const { gql } = require("apollo-server-express");
 //use gql from apollo server to define the Schema
 module.exports = gql`
   type Language {
-    userName: String!
+    name: String,
+    numbOfRepo: Int
   }
-
   type Query {
-    getLanguages(userName: String!): [Language]
+    getLanguage(userName: String!): Language
   }
 `;
